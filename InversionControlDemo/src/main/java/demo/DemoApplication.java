@@ -13,8 +13,12 @@ public class DemoApplication {
      /* HelloWorldImpl helloWorldImpl = (HelloWorldImpl) ctx.getBean("helloWorld");
         helloWorldImpl.sayHello(); */
         
+        /* Injection by Constructor Based */
         InjectedByConstructorService constructorService = (InjectedByConstructorService) ctx.getBean("injectedByConstructorService");
         constructorService.getMessage();
         
+        /* Injection by Setter Based */
+        SetterBasedService setterBasedService = (SetterBasedService) ctx.getBean("setterBasedService");
+        setterBasedService.getMessage();
     }
 }
