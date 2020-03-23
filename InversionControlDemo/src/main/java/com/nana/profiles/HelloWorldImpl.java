@@ -1,4 +1,4 @@
-package demo;
+package com.nana.profiles;
 
 import org.springframework.stereotype.Component;
 
