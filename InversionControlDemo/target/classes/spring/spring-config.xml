@@ -4,14 +4,51 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="com.nana.profiles" />
+	<context:component-scan
+		base-package="com.nana.profiles" />
+
+	<bean id="greetingController"
+		class="com.nana.profiles.controllers.GreetingController" />
+	<bean id="helloWorldFactory"
+		class="com.nana.profiles.services.HelloWorldFactory" />
+
+	<bean id="french" factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="fr" />
+	</bean>
+
+	<bean id="helloWorldServiceGerany"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="de" />
+	</bean>
+
+	<bean id="helloWorldServicePoland"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="pl" />
+	</bean>
+
+	<bean id="helloWorldServiceRussian"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="ru" />
+	</bean>
+
+	<beans profile="english">
+		<bean id="helloWorldServiceEnglish"
+			factory-bean="helloWorldFactory"
+			factory-method="createHelloWorldService" primary="true">
+			<constructor-arg value="en" />
+		</bean>
+	</beans>
 	
-	<bean id="greetingController" class="com.nana.profiles.controllers.GreetingController"/>
-	<bean id="helloWorldFactory" class="com.nana.profiles.services.HelloWorldFactory"/>
-	<bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-		<constructor-arg value="fr"/>
-	</bean>
-	<bean id="helloWorldServiceGerany" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
-		<constructor-arg value="de"/>
-	</bean>
+	<beans profile="spanish">
+		<bean id="helloWorldServiceSpanish"
+			factory-bean="helloWorldFactory"
+			factory-method="createHelloWorldService" primary="true">
+			<constructor-arg value="es" />
+		</bean>
+	</beans>
+	
 </beans>
