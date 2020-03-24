@@ -11,4 +11,7 @@
 	<bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
 		<constructor-arg value="fr"/>
 	</bean>
+	<bean id="helloWorldServiceGerany" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+		<constructor-arg value="de"/>
+	</bean>
 </beans>
