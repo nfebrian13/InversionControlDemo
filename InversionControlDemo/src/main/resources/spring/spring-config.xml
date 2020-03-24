@@ -8,5 +8,7 @@
 	
 	<bean id="greetingController" class="com.nana.profiles.controllers.GreetingController"/>
 	<bean id="helloWorldFactory" class="com.nana.profiles.services.HelloWorldFactory"/>
-	
+	<bean id="french" factory-bean="helloWorldFactory" factory-method="createHelloWorldService">
+		<constructor-arg value="fr"/>
+	</bean>
 </beans>

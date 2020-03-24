@@ -30,10 +30,10 @@ public class HelloConfig {
 		return factory.createHelloWorldService("es");
 	}
 
-	@Bean(name = "french")
+/**	@Bean(name = "french")
 	public HelloWorldService helloWorldServiceFrench(HelloWorldFactory factory) {
 		return factory.createHelloWorldService("fr");
-	}
+	} **/
 
 	@Bean
 	public HelloWorldService helloWorldServiceGerany(HelloWorldFactory factory) {
