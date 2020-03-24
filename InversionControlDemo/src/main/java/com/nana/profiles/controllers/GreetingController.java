@@ -2,7 +2,6 @@ package com.nana.profiles.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Controller;
 
 import com.nana.profiles.services.HelloWorldService;
 
@@ -15,19 +14,19 @@ public class GreetingController {
 
 	private HelloWorldService helloWorldServiceFrench;
 
-	@Autowired
+//	@Autowired
 	public void setHelloWorldService(HelloWorldService helloWorldService) {
 		this.helloWorldService = helloWorldService;
 	}
 
-	@Autowired
-	@Qualifier("helloWorldServiceGerany")
+//	@Autowired
+//	@Qualifier("helloWorldServiceGerany")
 	public void setHelloWorldServiceGerman(HelloWorldService helloWorldServiceGerman) {
 		this.helloWorldServiceGerman = helloWorldServiceGerman;
 	}
 
-	@Autowired
-	@Qualifier("french")
+//	@Autowired
+//	@Qualifier("french")
 	public void setHelloWorldServiceFrench(HelloWorldService helloWorldServiceFrench) {
 		this.helloWorldServiceFrench = helloWorldServiceFrench;
 	}
