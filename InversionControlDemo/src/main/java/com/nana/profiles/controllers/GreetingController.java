@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 
 import com.nana.profiles.services.HelloWorldService;
 
-@Controller
+//@Controller
 public class GreetingController {
 
 	private HelloWorldService helloWorldService;
