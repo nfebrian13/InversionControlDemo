@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="helloWorldFactory"
+		class="com.nana.profiles.services.HelloWorldFactory" />
+
+	<!-- HelloConfig.java -->
+	<bean id="french" factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="fr" />
+	</bean>
+
+	<!-- HelloConfig.java -->
+	<bean id="helloWorldServiceGerany"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="de" />
+	</bean>
+
+	<!-- HelloConfig.java -->
+	<bean id="helloWorldServicePoland"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="pl" />
+	</bean>
+
+	<!-- HelloConfig.java -->
+	<bean id="helloWorldServiceRussian"
+		factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="ru" />
+	</bean>
+
+	<!-- HelloConfig.java -->
+	<beans profile="english">
+		<bean id="helloWorldServiceEnglish"
+			factory-bean="helloWorldFactory"
+			factory-method="createHelloWorldService" primary="true">
+			<constructor-arg value="en" />
+		</bean>
+	</beans>
+
+	<!-- HelloConfig.java -->
+	<beans profile="spanish">
+		<bean id="helloWorldServiceSpanish"
+			factory-bean="helloWorldFactory"
+			factory-method="createHelloWorldService" primary="true">
+			<constructor-arg value="es" />
+		</bean>
+	</beans>
+
+</beans>

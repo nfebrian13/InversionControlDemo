@@ -7,59 +7,13 @@
 	<context:component-scan
 		base-package="com.nana.profiles" />
 
+	<import resource="classpath*:spring/helloworld-config.xml"/>
+
 	<bean id="greetingController"
 		class="com.nana.profiles.controllers.GreetingController">
 		<property name="helloWorldService" ref="helloWorldServiceEnglish" />
 		<property name="helloWorldServiceFrench" ref="french" />
 		<property name="helloWorldServiceGerman" ref="helloWorldServiceGerany" />
 	</bean>
-
-	<bean id="helloWorldFactory"
-		class="com.nana.profiles.services.HelloWorldFactory" />
-
-	<!-- HelloConfig.java -->
-	<bean id="french" factory-bean="helloWorldFactory"
-		factory-method="createHelloWorldService">
-		<constructor-arg value="fr" />
-	</bean>
-
-	<!-- HelloConfig.java -->
-	<bean id="helloWorldServiceGerany"
-		factory-bean="helloWorldFactory"
-		factory-method="createHelloWorldService">
-		<constructor-arg value="de" />
-	</bean>
-
-	<!-- HelloConfig.java -->
-	<bean id="helloWorldServicePoland"
-		factory-bean="helloWorldFactory"
-		factory-method="createHelloWorldService">
-		<constructor-arg value="pl" />
-	</bean>
-
-	<!-- HelloConfig.java -->
-	<bean id="helloWorldServiceRussian"
-		factory-bean="helloWorldFactory"
-		factory-method="createHelloWorldService">
-		<constructor-arg value="ru" />
-	</bean>
-
-	<!-- HelloConfig.java -->
-	<beans profile="english">
-		<bean id="helloWorldServiceEnglish"
-			factory-bean="helloWorldFactory"
-			factory-method="createHelloWorldService" primary="true">
-			<constructor-arg value="en" />
-		</bean>
-	</beans>
-
-	<!-- HelloConfig.java -->
-	<beans profile="spanish">
-		<bean id="helloWorldServiceSpanish"
-			factory-bean="helloWorldFactory"
-			factory-method="createHelloWorldService" primary="true">
-			<constructor-arg value="es" />
-		</bean>
-	</beans>
 
 </beans>
