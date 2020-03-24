@@ -1,8 +1,5 @@
 package com.nana.profiles.config;
 
-import java.util.jar.Attributes.Name;
-
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -14,10 +11,10 @@ import com.nana.profiles.services.HelloWorldService;
 @Configuration
 public class HelloConfig {
 
-	@Bean
+/**	@Bean
 	public HelloWorldFactory helloWorldFactory() {
 		return new HelloWorldFactory();
-	}
+	} **/
 
 	@Bean
 	@Profile("english")
